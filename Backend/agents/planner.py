@@ -1,16 +1,10 @@
 from llm.router import generate
+from agents.prompts import PLANNER_PROMPT
 
-def planner_agent(user_query):
+def planner_agent(query):
 
-    prompt = f"""
-    You are a planning agent.
-
-    Break the user's request into research tasks.
-
-    User Query:
-    {user_query}
-
-    Return only numbered tasks.
-    """
+    prompt = PLANNER_PROMPT.format(
+        query=query
+    )
 
     return generate(prompt)
