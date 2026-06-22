@@ -1,11 +1,10 @@
 from llm.router import generate
+from agents.prompts import WRITER_PROMPT
 
-def writer_agent(content):
+def writer_agent(notes):
 
-    prompt = f"""
-    Create a professional report.
-
-    {content}
-    """
+    prompt = WRITER_PROMPT.format(
+        notes=notes
+    )
 
     return generate(prompt)

@@ -1,12 +1,11 @@
 from rag.retriever import retrieve
 
-def research_agent(task, vector_store):
+def research_agent(task):
 
-    docs = retrieve(
-        vector_store,
-        task
-    )
+    docs = retrieve(task)
 
-    return "\n".join(
+    context = "\n\n".join(
         [doc.page_content for doc in docs]
     )
+
+    return context
