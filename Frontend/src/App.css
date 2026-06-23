@@ -1,0 +1,160 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  background: #f4f6f9;
+
+  color: #1f2937;
+}
+
+.app {
+
+  min-height: 100vh;
+
+  padding: 40px 20px;
+}
+
+.container {
+
+  max-width: 1100px;
+
+  margin: auto;
+}
+
+.header {
+
+  text-align: center;
+
+  margin-bottom: 40px;
+}
+
+.header h1 {
+
+  font-size: 42px;
+
+  margin-bottom: 10px;
+}
+
+.header p {
+
+  color: #6b7280;
+
+  font-size: 16px;
+}
+
+.query-section {
+
+  background: white;
+
+  padding: 25px;
+
+  border-radius: 12px;
+
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.08);
+
+  margin-bottom: 30px;
+}
+
+.query-input {
+
+  width: 100%;
+
+  padding: 15px;
+
+  border: 1px solid #d1d5db;
+
+  border-radius: 10px;
+
+  resize: none;
+
+  font-size: 15px;
+}
+
+.query-input:focus {
+
+  outline: none;
+
+  border-color: #2563eb;
+}
+
+.generate-btn {
+
+  margin-top: 15px;
+
+  background: #111827;
+
+  color: white;
+
+  border: none;
+
+  padding: 12px 24px;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  font-size: 15px;
+}
+
+.generate-btn:hover {
+
+  background: #000;
+}
+
+.loading {
+
+  background: white;
+
+  padding: 20px;
+
+  border-radius: 12px;
+
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.08);
+
+  text-align: center;
+
+  margin-bottom: 30px;
+}
+
+.report-section {
+
+  background: white;
+
+  padding: 30px;
+
+  border-radius: 12px;
+
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.report-section h2 {
+
+  margin-bottom: 20px;
+
+  color: #111827;
+}
+
+.report-content {
+
+  line-height: 1.8;
+}
+
+.report-content h1,
+.report-content h2,
+.report-content h3 {
+
+  margin-top: 20px;
+
+  margin-bottom: 10px;
+}
+
+.report-content p {
+
+  margin-bottom: 12px;
+}
