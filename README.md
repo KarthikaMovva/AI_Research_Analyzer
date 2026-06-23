@@ -7,21 +7,37 @@ It processes user queries through multiple AI agents and generates structured re
 
 ## 🚀 System Architecture
 User
+
 ↓
+
 React UI
+
 ↓
+
 FastAPI Backend
+
 ↓
+
 LangGraph Orchestrator
+
 ↓
+
 Planner Agent
+
 ↓
+
 Researcher Agent (RAG Retrieval from PDFs)
+
 ↓
+
 Critic Agent (Validation & Refinement)
+
 ↓
+
 Writer Agent (Report Generation)
+
 ↓
+
 Final Report
 
 
