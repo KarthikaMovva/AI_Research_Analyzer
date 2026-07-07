@@ -1,15 +1,34 @@
-from rag.embedding_model import get_embedding_model
-from rag.vector_store import load_vector_store
+from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_community.vectorstores import FAISS
 
-embeddings = get_embedding_model()
-
-vector_store = load_vector_store(
-    embeddings
+embeddings = HuggingFaceEmbeddings(
+    model_name="sentence-transformers/all-MiniLM-L6-v2"
 )
 
-def retrieve(query, k=3):
+vector_store = FAISS.load_local(
+    "vector_db",
+    embeddings,
+    allow_dangerous_deserialization=True
+)
 
-    return vector_store.similarity_search(
+def retrieve(query):
+
+    retrieved_docs = vector_store.similarity_search(
         query,
-        k=k
+        k=5
     )
+
+    results = []
+
+    for doc in retrieved_docs:
+
+        results.append({
+
+            "content": doc.page_content,
+
+            "source": doc.metadata.get("source"),
+
+            "page": doc.metadata.get("page")
+        })
+
+    return results
