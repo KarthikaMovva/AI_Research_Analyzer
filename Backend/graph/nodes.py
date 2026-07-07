@@ -1,5 +1,7 @@
+from pydantic import annotated_handlers
+from pydantic import annotated_handlers
 from agents.planner import planner_agent
-from agents.researcher import research_agent
+from agents.researcher import researcher_agent
 from agents.critic import critic_agent
 from agents.writer import writer_agent
 
@@ -19,6 +21,9 @@ def researcher_node(state):
 
     notes = []
 
+    sources = []
+
+
     for task in tasks:
 
         task = task.strip()
@@ -26,12 +31,26 @@ def researcher_node(state):
         if not task:
             continue
 
+
+        result = researcher_agent(task)
+
+
         notes.append(
-            research_agent(task)
+            result["research"]
         )
 
+
+        sources.extend(
+            result["sources"]
+        )
+        print(type(notes))
+        print(notes)
+
     return {
+
         "notes": "\n\n".join(notes),
+
+        "sources": sources,
 
         "retry_count":
             state.get(

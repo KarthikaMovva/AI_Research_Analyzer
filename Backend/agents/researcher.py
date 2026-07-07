@@ -1,11 +1,24 @@
 from rag.retriever import retrieve
 
-def research_agent(task):
 
-    docs = retrieve(task)
+def researcher_agent(query):
+
+    results = retrieve(query)
 
     context = "\n\n".join(
-        [doc.page_content for doc in docs]
+        item["content"]
+        for item in results
     )
 
-    return context
+    sources = []
+
+    for item in results:
+
+        sources.append(
+            f'{item["source"]} (Page {item["page"]})'
+        )
+
+    return {
+        "research": context,
+        "sources": sources
+    }
