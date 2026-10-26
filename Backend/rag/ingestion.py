@@ -1,8 +1,13 @@
 from pathlib import Path
 
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_huggingface import HuggingFaceEmbeddings
-from langchain_community.vectorstores import FAISS
+try:
+    from langchain_community.vectorstores import FAISS
+except Exception:  # noqa: BLE001
+    FAISS = None
+
+# Use lightweight dummy embeddings (no torch dependency)
+from rag.embedding_model import get_embedding_model
 
 from rag.document_loader import load_document
 
@@ -12,9 +17,7 @@ VECTOR_DB_PATH = "vector_db"
 
 
 
-embeddings = HuggingFaceEmbeddings(
-    model_name="sentence-transformers/all-MiniLM-L6-v2"
-)
+embeddings = get_embedding_model()
 
 
 

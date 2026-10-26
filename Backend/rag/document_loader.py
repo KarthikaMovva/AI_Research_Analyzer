@@ -40,3 +40,10 @@ def load_document(file_path):
 
 
     return loader.load()
+
+
+def load_pdf(file_path):
+    """Convenience wrapper for loading PDFs. Mirrors the old public API used in tests."""
+    if Path(file_path).suffix.lower() != ".pdf":
+        raise Exception("load_pdf expects a .pdf file")
+    return load_document(file_path)
